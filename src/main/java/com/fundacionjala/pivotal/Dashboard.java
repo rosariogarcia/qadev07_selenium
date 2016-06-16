@@ -30,6 +30,9 @@ public class Dashboard extends BasePage{
     @FindBy(xpath = "html/body/div[2]/div/div/div[2]/div/form/div/footer/button[2]")
     private WebElement createNewProjectButton;
 
+    @FindBy(id = "notice")
+    private WebElement noticeProjectDeleted;
+
     public String getUserNameText() {
         return userNameText.getText();
     }
@@ -52,5 +55,9 @@ public class Dashboard extends BasePage{
     public ProjectMain clickNewProjectButton(){
         createNewProjectButton.click();
         return new ProjectMain();
+    }
+
+    public String getNoticeProjectDeleted(){
+        return noticeProjectDeleted.getText();
     }
 }
