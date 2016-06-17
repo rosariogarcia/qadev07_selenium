@@ -32,4 +32,19 @@ public class Login extends BasePage {
         sigInButton.click();
         return new Dashboard();
     }
+
+    public static Dashboard loginAS(String username, String password){
+        PivotalHome pivotalHome = new PivotalHome();
+        Dashboard dashboard = new Dashboard();
+        if (!dashboard.getUserNameText().equals(username)){
+            //dashboard.logOut();
+            Login login = pivotalHome.clickSignInLink();
+            login.setUserNameTextField(username);
+            login.setPasswordTextField(password);
+            return login.clickSignInButton();
+        }
+
+        return dashboard;
+
+    }
 }

@@ -12,11 +12,10 @@ public class LoginTest {
     public void testLogin(){
         PivotalHome pivotalHome = new PivotalHome();
         Login login = pivotalHome.clickSignInLink();
-        System.out.println(login);
+
         login.setUserNameTextField("walter_mercado_jala");
         login.setPasswordTextField("P@ssw0rd");
         Dashboard dashboard = login.clickSignInButton();
-        System.out.println(dashboard);
         String expectedUsername = "WALTER_MERCADO_JALA";
         assertEquals(expectedUsername, dashboard.getUserNameText());
     }

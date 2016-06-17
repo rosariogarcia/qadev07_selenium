@@ -1,5 +1,7 @@
 package com.fundacionjala.pivotal;
 
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -34,7 +36,18 @@ public class Dashboard extends BasePage{
     private WebElement noticeProjectDeleted;
 
     public String getUserNameText() {
-        return userNameText.getText();
+        String userName = "";
+        try {
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            userName = userNameText.getText();
+        }
+        catch (NoSuchElementException e){
+
+        }
+        finally {
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        }
+        return userName;
     }
 
     public void newProject() {
