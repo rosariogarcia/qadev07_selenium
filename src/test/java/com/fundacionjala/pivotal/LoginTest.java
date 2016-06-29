@@ -4,9 +4,13 @@ import org.junit.Test;
 
 import static org.testng.Assert.assertEquals;
 
+
+
 /**
  * Created by RosarioGarcia on 6/15/2016.
  */
+
+
 public class LoginTest {
     @Test
     public void testLogin(){
